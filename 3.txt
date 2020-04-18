@@ -1,0 +1,61 @@
+#include <stdio.h>
+#include <time.h>
+
+
+int main()
+{
+  
+clock_t start, end;
+double timeUsed;
+
+start = clock();
+  
+for(int i=0; i<100000; i++){
+subscriptfunc();   
+}
+
+end = clock();
+
+timeUsed = ((double) (end - start)) / CLOCKS_PER_SEC;
+  
+printf("subscript references time used:%f\n",timeUsed);
+
+start = clock();
+  
+for(int i=0; i<100000; i++){
+pointersfunc();
+}
+
+end = clock();
+
+timeUsed = ((double) (end - start)) / CLOCKS_PER_SEC;
+  
+printf("pointers time used:%f\n",timeUsed);
+  
+return 0;
+}
+
+void subscriptfunc()
+{
+int arr[10][5] = {0};
+
+for(int j=0; j<5 ; j++){
+for(int i=0; i<10; i++){
+arr[i][j];
+}
+}
+
+return;
+}
+
+
+void pointersfunc()
+{
+int arr[10][5] = {0};
+for(int j=0; j<5 ; j++){
+for(int i=0; i<10; i++){
+*(*(arr+i)+j);
+}
+}
+return;
+}

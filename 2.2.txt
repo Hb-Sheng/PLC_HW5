@@ -1,0 +1,26 @@
+#include <stdlib.h>
+#include <stdio.h>
+
+enum Enum
+{
+    one = 1,
+    two = 2,
+    three = 3,
+    four = 4
+};
+
+int main(){
+	int intArray[10];
+     
+    printf("%d\n", one | two);
+    printf("%d\n", two & three);
+    printf("%d\n", three ^ four);
+    printf("%d\n", four << 1);
+    printf("%d\n", four >> 1);
+    printf("%d\n", one + two);
+    printf("%d\n", three - one);
+    printf("%d\n", two * four);
+    printf("%d\n", four / two);
+    
+    return 0;
+}
